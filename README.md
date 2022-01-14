@@ -8,6 +8,6 @@ This is a React.js web application that aims to help studnets find and keep trac
 
 Goal Husky is a website that aims to help UW students **find like-minded people** to achieve their same goal. And this project is a continuous project from project-1 contributed by Henry Bao and Johnny He.
 
-### Author
+## Author
 This is an info 340 group project contribute by Group - C1:<br>
 Henry Bao, Johnny He, Leo Fang, Lesi Li.

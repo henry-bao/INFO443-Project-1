@@ -1,0 +1,54 @@
+{
+    "name": "project-2",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@material/snackbar": "^10.0.0",
+        "@testing-library/jest-dom": "^5.11.9",
+        "@testing-library/react": "^11.2.5",
+        "@testing-library/user-event": "^12.8.1",
+        "base-64": "^1.0.0",
+        "body-scroll-lock": "^3.1.5",
+        "bootstrap": "^3.4.1",
+        "firebase": "^8.2.10",
+        "framer-motion": "^3.10.3",
+        "lodash": "^4.17.21",
+        "react": "^17.0.1",
+        "react-alert": "^7.0.2",
+        "react-bootstrap": "^1.5.2",
+        "react-burger-menu": "^3.0.3",
+        "react-countdown": "^2.3.1",
+        "react-dom": "^17.0.1",
+        "react-firebaseui": "^4.1.0",
+        "react-responsive": "^8.2.0",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.3",
+        "react-toastify": "^7.0.3",
+        "styled-components": "^5.2.1",
+        "web-vitals": "^1.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

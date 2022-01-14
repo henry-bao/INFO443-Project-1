@@ -1,0 +1,540 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.landing {
+    background-image: url('./img/landing.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing main {
+    text-align: center;
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    margin-top: 30vh;
+}
+
+.landing h1 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: #e7cf95;
+}
+
+.landing span {
+    font-size: 1.5rem;
+    padding: 0.3rem;
+    margin-top: 2rem;
+    border: solid;
+    border-radius: 0.3em;
+    margin-bottom: 5rem;
+}
+
+.landing span:hover {
+    background-color: #b7a57a;
+    opacity: 0.5;
+}
+
+.splashButton {
+    text-decoration: none;
+    color: white;
+}
+
+.alert {
+    text-align: center;
+    padding: 10px;
+    background: #79c879;
+    color: #fff;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.spinner {
+    margin-top: 3rem;
+    font-size: 6rem;
+}
+
+.loginbutton {
+    border: 0;
+    outline: 0;
+    padding: 8px 1em;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: #b7a57a;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.card {
+    min-width: auto;
+    background: white;
+    /* transition: 0.4s ease-out; */
+    border-radius: 10px;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.alertBox {
+    z-index: 99;
+}
+.card:hover {
+    opacity: 0.9;
+    box-shadow: 0px 0px 7px 7px rgba(0, 0, 0, 0.2);
+}
+
+.card .btn {
+    margin-top: 0.8rem;
+    color: white;
+    max-height: 2.5rem;
+}
+
+.descriptionBox {
+    text-align: center;
+    /* border: solid; */
+    padding: 1.2rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.descriptionBox img {
+    border-radius: 15px;
+    width: 100%;
+    max-height: 15rem;
+}
+
+.descriptionContent {
+    color: white;
+    width: 100%;
+    margin-top: 1.2rem;
+}
+
+.descriptionContent .btn-success.disabled {
+    color: #fff;
+    opacity: 2;
+}
+
+.btn-success:hover {
+    background-color: #28a745;
+    border-color: #1e7e34;
+}
+
+.btn-warning:hover {
+    background-color: #ffc107;
+    border-color: #d39e00;
+}
+.descriptionBox .icons {
+    cursor: pointer;
+    margin: 0 auto;
+}
+.descriptionBox i {
+    font-size: 42px;
+    color: #f0f0f0;
+}
+.descriptionContent h2 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    margin-top: 0.7rem;
+}
+
+.descriptionContent p {
+    font-size: 1.2rem;
+}
+
+i {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.descriptionBox i:hover {
+    color: #4b2e83;
+}
+
+.joinBox {
+    font-family: 'Cabin', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+}
+.joinBox p {
+    font-family: none;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.joinBox .btn-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+.joinBox .btn-primary:hover {
+    color: #fff;
+    background-color: #4b2e83;
+    border-color: #4b2e83;
+}
+
+.joinBox .btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: none;
+}
+
+.joinBox .btn-primary.disabled,
+.joinBox .btn-primary:disabled {
+    background-color: #4b2e83;
+    border-color: #4b2e83;
+}
+
+.loginPage {
+    margin-top: 30vh;
+    margin-bottom: 10rem;
+}
+
+.navlink {
+    font-size: 16px;
+}
+
+.home,
+.ranking,
+.signin {
+    margin: 10px;
+}
+
+.login-btn a {
+    color: #4b2e83;
+}
+
+.filter-btn {
+    margin-right: 5px;
+}
+
+.bar-section {
+    background-color: #f0f0f0;
+}
+
+.bar-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    flex-direction: column;
+    height: inherit;
+    display: flex;
+    background-color: #b7a57a;
+}
+
+section {
+    padding: 1em;
+}
+
+/* adding filter bar */
+.container {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.filterDiv {
+    float: left;
+    background-color: #f0f0f0;
+    color: black;
+    width: 100px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 2px;
+    display: none;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: visible;
+    height: 100%;
+    width: 100%;
+}
+
+.leaderboardImg {
+    height: 100px;
+    width: 100px;
+}
+
+.leaderboardBackground {
+    background-color: #f0f0f0;
+}
+
+.leaderboardTag:hover {
+    cursor: pointer;
+}
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+}
+
+/* Style the buttons */
+
+.searchbar .btn {
+    padding: 5px 10px;
+}
+
+.filter-container .btn {
+    background-color: white;
+}
+
+/* Add a light grey background on mouse-over */
+.bar-section .btn:hover {
+    background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+    background-color: #666;
+    color: white;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark::after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark::after {
+    display: block;
+}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+/* The popup chat - hidden by default */
+
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Full-width textarea */
+
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/send button */
+
+.form-container .btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+/* footer */
+footer {
+    display: block;
+    background-color: #b7a57a;
+    font-size: 10px;
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 25%;
+    text-align: center;
+}
+
+footer.specialOne {
+    color: black;
+    background-color: #b7a57a;
+}
+
+footer img {
+    width: 50px;
+}
+
+/* Responsive */
+@media (min-width: 576px) {
+    .card {
+        min-width: 12rem;
+    }
+    .descriptionBox img {
+        max-height: none;
+    }
+    .descriptionContent {
+        margin-top: 5%;
+        padding-left: 2rem;
+        text-align: left;
+    }
+    .descriptionBox .icons {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        min-width: 15rem;
+    }
+    .descriptionBox img {
+        width: 40%;
+    }
+    .descriptionContent {
+        width: 60%;
+    }
+    .descriptionContent p {
+        font-size: 0.8em;
+    }
+    .loginbutton {
+        background-image: linear-gradient(to right, transparent 0%, #b7a57a 100%);
+        transition: all 240ms ease-in-out;
+    }
+    .loginbutton:hover {
+        background-color: #85754d;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .bar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-container {
+        padding-bottom: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card {
+        max-width: 20rem;
+    }
+    .descriptionContent p {
+        margin-top: 1.2rem;
+        font-size: 1.2em;
+    }
+}

@@ -15,6 +15,6 @@ This is the structure diagram of this codebase, drawn in UML format.
 ## Process Flow Diagram
 This is the process flow diagram of this codebase, drawn in UML format.
 
-### Author
+## Author
 This is an info 340 group project contribute by Group - C1:<br>
 Henry Bao, Johnny He, Leo Fang, Lesi Li.

@@ -10,11 +10,14 @@ Goal Husky is a website that aims to help UW students **find like-minded people*
 
 ## Structure Diagram
 This is the structure diagram of this codebase, drawn in UML format.
-![structure diagram](/img/structure.jpg)
+</br>
+<img src='./images/structure.jpg' alt='structure diagram' width='700'>
 
 ## Process Flow Diagram
 This is the process flow diagram of this codebase, drawn in UML format.
+</br>
+<img src='./images/process_flow.png' alt='process flow dagram' width='700'>
 
-## Author
+## Original Project Author
 This is an info 340 group project contribute by Group - C1:<br>
 Henry Bao, Johnny He, Leo Fang, Lesi Li.

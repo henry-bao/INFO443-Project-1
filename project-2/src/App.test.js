@@ -31,7 +31,7 @@ describe('Landing Page', () => {
         userEvent.click(navLink);
         expect(navLink).toHaveAttribute('href', '/main');
     });
-    test('resize window width to 768px', async () => {
+    test('Text changes on mobile', async () => {
         render(
             <BrowserRouter>
                 <LandingPage isMobile={true} />

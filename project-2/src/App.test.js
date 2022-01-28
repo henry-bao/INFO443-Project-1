@@ -2,19 +2,19 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+// import App from './App';
 import LandingPage from './landing';
 
 // import BarSection from './barsection';
 
 // describe('The app', () => {
-//     test('renders without crashing', () => {
+//     test('Renders without crashing', () => {
 //         render(<App />);
 //     });
 // });
 
 describe('Landing Page', () => {
-    test('renders without crashing', () => {
+    test('Renders without crashing', () => {
         render(
             <BrowserRouter>
                 <LandingPage isMobile={false} />
@@ -41,20 +41,6 @@ describe('Landing Page', () => {
         expect(navLink).toBeInTheDocument();
     });
 });
-
-// describe('landing page', () => {
-//     test('landing page shows up correctly', () => {
-//         render(<App />);
-
-//         screen.debug();
-//         expect(screen.getByText('Click here to start')).toBeInTheDocument();
-//         let button = screen.getByRole('button');
-//         userEvent.click(button);
-
-//         expect(screen.getByText('Home')).toBeInTheDocument();
-
-//     });
-// });
 
 // describe('sign in', () => {
 //     test('sign in page shows up correctly', () => {

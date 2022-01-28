@@ -8,9 +8,10 @@ import NavBar from './navbar/navbar';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AddGoalForm } from './goalform';
 import Footer from './footer';
-import { LandingPage } from './landing';
+import LandingPage from './landing';
 import { decode, encode } from 'base-64';
 import LeaderBoard from './leaderboard/leaderboard';
+import { useMediaQuery } from 'react-responsive';
 
 if (!global.btoa) {
     global.btoa = encode;
@@ -33,7 +34,7 @@ const uiConfig = {
     signInSuccessUrl: '/main',
 };
 
-function App() {
+export default function App() {
     const [cards, setCards] = useState([]);
     const [cardsData, setCardsData] = useState([]);
     useEffect(() => {
@@ -56,18 +57,18 @@ function App() {
     // auth state event listener
 
     useEffect(() => {
-		const cardsRef = firebase.database().ref('Goals');
-		cardsRef.on('value', (snapshot) => {
-			const theCardsObj = snapshot.val();
-			let objectKeyArray = Object.keys(theCardsObj);
-			let cardsArray = objectKeyArray.map((key) => {
-				let singleCardObj = theCardsObj[key];
-				singleCardObj.key = key;
-				return singleCardObj;
-			})
-			setCards(cardsArray);
-		})
-	}, [])
+        const cardsRef = firebase.database().ref('Goals');
+        cardsRef.on('value', (snapshot) => {
+            const theCardsObj = snapshot.val();
+            let objectKeyArray = Object.keys(theCardsObj);
+            let cardsArray = objectKeyArray.map((key) => {
+                let singleCardObj = theCardsObj[key];
+                singleCardObj.key = key;
+                return singleCardObj;
+            });
+            setCards(cardsArray);
+        });
+    }, []);
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((firebaseUser) => {
@@ -112,13 +113,15 @@ function App() {
     }
     const urlPath = useLocation();
 
+    const isMobile = useMediaQuery({ maxWidth: 768 });
+
     return (
         <div>
             <header>{urlPath.pathname !== '/' && <NavBar buttonWord={buttonWord} />}</header>
             <main>
                 <Switch>
                     <Route exact path="/">
-                        <LandingPage />
+                        <LandingPage isMobile={isMobile} />
                     </Route>
                     <Route path="/main">
                         <BarSection
@@ -150,5 +153,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

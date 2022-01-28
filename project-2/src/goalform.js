@@ -3,7 +3,6 @@ import { useState } from 'react';
 import 'firebase/database';
 import firebase from 'firebase';
 import 'firebase/firestore';
-import { firebaseConfig } from './index';
 
 export function AddGoalForm() {
     // File Rendering
@@ -75,11 +74,12 @@ export function AddGoalForm() {
     }
 
     // 	// Initialize Firebase
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    } else {
-        firebase.app(); // if already initialized, use that one
-    }
+    // if (!firebase.apps.length) {
+    //     firebase.initializeApp(firebaseConfig);
+    // } else {
+    //     firebase.app(); // if already initialized, use that one
+    // }
+    
     firebase.analytics();
     // firebase.initializeApp(firebaseConfig);
 

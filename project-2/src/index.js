@@ -8,7 +8,7 @@ import 'firebase/auth'; //get everything from this library
 import 'firebase/database';
 
 // Your web app's Firebase configuration
-export const firebaseConfig = {
+const firebaseConfig = {
     apiKey: 'AIzaSyBcmF2mDQg7K76YWcwJE1GAHkeFNP-1SHw',
     authDomain: 'goal-husky.firebaseapp.com',
     databaseURL: 'https://goal-husky-default-rtdb.firebaseio.com',
@@ -17,6 +17,7 @@ export const firebaseConfig = {
     messagingSenderId: '433839611230',
     appId: '1:433839611230:web:a753a2c113c492452fc3cf',
 };
+
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(

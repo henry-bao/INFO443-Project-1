@@ -1,85 +1,116 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// import App from './App';
-import './index';
-import { LandingPage } from './landing';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import LandingPage from './landing';
 
-describe('landing page', () => {
-    test('landing page shows up correctly', () => {
-        render(<LandingPage />);
+// import BarSection from './barsection';
 
-        screen.debug();
-        expect(screen.getByText('Find like-minded people')).toBeInTheDocument();
+// describe('The app', () => {
+//     test('renders without crashing', () => {
+//         render(<App />);
+//     });
+// });
 
-        let button = screen.getByRole('button');
-        userEvent.click(button);
-
-        expect(screen.getByText('Home')).toBeInTheDocument();
+describe('Landing Page', () => {
+    test('renders without crashing', () => {
+        render(
+            <BrowserRouter>
+                <LandingPage isMobile={false} />
+            </BrowserRouter>
+        );
+    });
+    test('NavLink routes to /main', () => {
+        render(
+            <BrowserRouter>
+                <LandingPage isMobile={false} />
+            </BrowserRouter>
+        );
+        const navLink = screen.getByText('Find like-minded people to complete your goals with!');
+        userEvent.click(navLink);
+        expect(navLink).toHaveAttribute('href', '/main');
+    });
+    test('resize window width to 768px', async () => {
+        render(
+            <BrowserRouter>
+                <LandingPage isMobile={true} />
+            </BrowserRouter>
+        );
+        const navLink = screen.getByText('Click here to start!');
+        expect(navLink).toBeInTheDocument();
     });
 });
 
-describe('landing page', () => {
-    test('landing page shows up correctly', () => {
-        render('Hi');
-        // render(<App />);
-        /*
-        screen.debug();
-        expect(screen.getByText('Find like-minded people')).toBeInTheDocument();
+// describe('landing page', () => {
+//     test('landing page shows up correctly', () => {
+//         render(<App />);
 
-        let button = screen.getByRole('button');
-        userEvent.click(button);
+//         screen.debug();
+//         expect(screen.getByText('Click here to start')).toBeInTheDocument();
+//         let button = screen.getByRole('button');
+//         userEvent.click(button);
 
-        expect(screen.getByText('Home')).toBeInTheDocument();
-        */
-    });
-});
+//         expect(screen.getByText('Home')).toBeInTheDocument();
 
-/*
-describe('sign in', () => {
-    test('sign in page shows up correctly', () => {
-        render(<App />);
-        screen.debug();
-        let button = screen.getByRole('button');
-        userEvent.click(button);
-        button = screen.getByText('Sign in');
-        userEvent.click(button);
+//     });
+// });
 
-        expect(screen.getByText('Sign in with email')).toBeInTheDocument();
-        expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
+// describe('sign in', () => {
+//     test('sign in page shows up correctly', () => {
+//         render(<App />);
+//         screen.debug();
+//         let button = screen.getByRole('button');
+//         userEvent.click(button);
+//         button = screen.getByText('Sign in');
+//         userEvent.click(button);
 
-        button = screen.getByText('Home');
-        userEvent.click(button);
+//         expect(screen.getByText('Sign in with email')).toBeInTheDocument();
+//         expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
 
-        expect(screen.getByText('Show all')).toBeInTheDocument();
-        expect(screen.getByText('Health')).toBeInTheDocument();
-    });
-});
+//         button = screen.getByText('Home');
+//         userEvent.click(button);
 
-describe('barsecion', () => {
-    test('filter works properly', () => {
-        render(<App />);
-        screen.debug();
-        let button = screen.getByRole('button');
-        userEvent.click(button);
+//         expect(screen.getByText('Show all')).toBeInTheDocument();
+//         expect(screen.getByText('Health')).toBeInTheDocument();
+//     });
+// });
 
-        expect(screen.getByText('Guitar')).toBeInTheDocument();
-        expect(screen.getByText('Running')).toBeInTheDocument();
-        button = screen.getByText('Health');
-        userEvent.click(button);
-        expect(screen.getByText('Running')).toBeInTheDocument();
-        expect(screen.getByText('Guitar')).not.toBeInTheDocument();
-        expect(screen.getByText('Python')).not.toBeInTheDocument();
-        button = screen.getByText('Career');
-        userEvent.click(button);
-        expect(screen.getByText('Python')).toBeInTheDocument();
-        expect(screen.getByText('Running')).not.toBeInTheDocument();
-    });
-    test('search works properly', () => {
-        render(<App />);
-        screen.debug();
-        let button = screen.getByRole('button');
-        userEvent.click(button);
-    });
-});
-*/
+// describe('barsection', () => {
+//     test('barsection renders without error', () => {
+//         render(
+//             <BrowserRouter>
+//                 <BarSection />
+//             </BrowserRouter>
+//         );
+//     });
+
+//     // test('filter works properly', () => {
+//     //     render(
+//     //         <BrowserRouter>
+//     //             <BarSection />
+//     //         </BrowserRouter>
+//     //     );
+//     //     expect(screen.getByText('Guitar')).toBeInTheDocument();
+//     //     expect(screen.getByText('Running')).toBeInTheDocument();
+//     //     let button = screen.getByText('Health');
+//     //     userEvent.click(button);
+//     //     expect(screen.getByText('Running')).toBeInTheDocument();
+//     //     expect(screen.getByText('Guitar')).not.toBeInTheDocument();
+//     //     expect(screen.getByText('Python')).not.toBeInTheDocument();
+//     //     button = screen.getByText('Career');
+//     //     userEvent.click(button);
+//     //     expect(screen.getByText('Python')).toBeInTheDocument();
+//     //     // expect(screen.getByText('Running')).not.toBeInTheDocument();
+//     // });
+//     // test('search works properly', () => {
+//     //     render(
+//     //         <BrowserRouter>
+//     //             <BarSection />
+//     //         </BrowserRouter>
+//     //     );
+//     //     screen.debug();
+//     //     let button = screen.getByRole('button');
+//     //     userEvent.click(button);
+//     // });
+// });

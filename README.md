@@ -25,7 +25,7 @@ The unit test is built using the [Jest](https://facebook.github.io/jest/) tester
 npm install
 
 # Run the test
-npm start test
+npm run test
 ```
 
 ## Original Project Author

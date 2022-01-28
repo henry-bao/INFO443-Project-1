@@ -18,6 +18,16 @@ This is the process flow diagram of this codebase, drawn in UML format.
 </br>
 <img src='./images/process_flow.png' alt='process flow dagram' width='700'>
 
+## Running the Unit Test
+The unit test is built using the [Jest](https://facebook.github.io/jest/) tester. In order to run the test please enter the following lines into your terminal
+```bash
+# Install all the necessary packages 
+npm install
+
+# Run the test
+npm start test
+```
+
 ## Original Project Author
 This is an info 340 group project contribute by Group - C1:<br>
 Henry Bao, Johnny He, Leo Fang, Lesi Li.

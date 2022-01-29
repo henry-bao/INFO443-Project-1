@@ -117,7 +117,7 @@ export default function App() {
 
     return (
         <div>
-            <header>{urlPath.pathname !== '/' && <NavBar buttonWord={buttonWord} />}</header>
+            <header>{urlPath.pathname !== '/' && <NavBar buttonWord={buttonWord} isMobile={isMobile}/>}</header>
             <main>
                 <Switch>
                     <Route exact path="/">

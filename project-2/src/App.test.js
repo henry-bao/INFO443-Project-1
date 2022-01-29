@@ -2,29 +2,28 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-// import App from './App';
+import * as React from 'react';
+import { shallow, configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
 import LandingPage from './landing';
+import NavBar from './navbar/navbar';
+import Logo from './navbar/logo';
 
-// import BarSection from './barsection';
-
-// describe('The app', () => {
-//     test('Renders without crashing', () => {
-//         render(<App />);
-//     });
-// });
+configure({ adapter: new Adapter() });
 
 describe('Landing Page', () => {
     test('Renders without crashing', () => {
         render(
             <BrowserRouter>
-                <LandingPage isMobile={false} />
+                <LandingPage />
             </BrowserRouter>
         );
     });
     test('NavLink routes to /main', () => {
         render(
             <BrowserRouter>
-                <LandingPage isMobile={false} />
+                <LandingPage />
             </BrowserRouter>
         );
         const navLink = screen.getByText('Find like-minded people to complete your goals with!');
@@ -42,61 +41,65 @@ describe('Landing Page', () => {
     });
 });
 
-// describe('sign in', () => {
-//     test('sign in page shows up correctly', () => {
-//         render(<App />);
-//         screen.debug();
-//         let button = screen.getByRole('button');
-//         userEvent.click(button);
-//         button = screen.getByText('Sign in');
-//         userEvent.click(button);
+describe('NavBar', () => {
+    test("Logo must have a 'src' and an 'alt'", () => {
+        render(
+            <BrowserRouter>
+                <NavBar />
+            </BrowserRouter>
+        );
+        const logo = screen.getByRole('img');
+        expect(logo).toHaveAttribute('src');
+        expect(logo).toHaveAttribute('alt');
+    });
+    test('Logo changes on mobile', () => {
+        render(
+            <BrowserRouter>
+                <Logo isMobile={true} />
+            </BrowserRouter>
+        );
+        const src =
+            'https://firebasestorage.googleapis.com/v0/b/goal-husky.appspot.com/o/favicon.png?alt=media&token=f3285f01-f19b-4fd3-9a04-fcb10d998463';
+        const logo = screen.getByRole('img');
+        expect(logo).toHaveAttribute('src', src);
+    });
+    test('Sign in and Sign out buttons work', () => {
+        render(
+            <BrowserRouter>
+                <NavBar buttonWord={'Sign in'} />
+            </BrowserRouter>
+        );
+        const signInButton = screen.getByText('Sign in');
+        userEvent.click(signInButton);
+        expect(signInButton).toHaveAttribute('href', '/signin');
 
-//         expect(screen.getByText('Sign in with email')).toBeInTheDocument();
-//         expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
+        render(
+            <BrowserRouter>
+                <NavBar buttonWord={'Sign out'} />
+            </BrowserRouter>
+        );
+        const signOutButton = screen.getByText('Sign out');
+        userEvent.click(signOutButton);
+        expect(signOutButton).toHaveAttribute('href', '/');
+    });
+    test('Home and Ranking list button work', () => {
+        render(
+            <BrowserRouter>
+                <NavBar />
+            </BrowserRouter>
+        );
+        const navLinks = screen.getAllByRole('link');
+        const homeLink = navLinks[1];
+        const rankingListLink = navLinks[2];
+        expect(homeLink).toHaveAttribute('href', '/main');
+        expect(rankingListLink).toHaveAttribute('href', '/ranking');
+    });
 
-//         button = screen.getByText('Home');
-//         userEvent.click(button);
+    test('Burger menu only shows up  when isMobile is true', () => {
+        const mobileComponent = shallow(<NavBar isMobile={true} />);
+        expect(mobileComponent.text().includes('Burger')).toBeTruthy();
 
-//         expect(screen.getByText('Show all')).toBeInTheDocument();
-//         expect(screen.getByText('Health')).toBeInTheDocument();
-//     });
-// });
-
-// describe('barsection', () => {
-//     test('barsection renders without error', () => {
-//         render(
-//             <BrowserRouter>
-//                 <BarSection />
-//             </BrowserRouter>
-//         );
-//     });
-
-//     // test('filter works properly', () => {
-//     //     render(
-//     //         <BrowserRouter>
-//     //             <BarSection />
-//     //         </BrowserRouter>
-//     //     );
-//     //     expect(screen.getByText('Guitar')).toBeInTheDocument();
-//     //     expect(screen.getByText('Running')).toBeInTheDocument();
-//     //     let button = screen.getByText('Health');
-//     //     userEvent.click(button);
-//     //     expect(screen.getByText('Running')).toBeInTheDocument();
-//     //     expect(screen.getByText('Guitar')).not.toBeInTheDocument();
-//     //     expect(screen.getByText('Python')).not.toBeInTheDocument();
-//     //     button = screen.getByText('Career');
-//     //     userEvent.click(button);
-//     //     expect(screen.getByText('Python')).toBeInTheDocument();
-//     //     // expect(screen.getByText('Running')).not.toBeInTheDocument();
-//     // });
-//     // test('search works properly', () => {
-//     //     render(
-//     //         <BrowserRouter>
-//     //             <BarSection />
-//     //         </BrowserRouter>
-//     //     );
-//     //     screen.debug();
-//     //     let button = screen.getByRole('button');
-//     //     userEvent.click(button);
-//     // });
-// });
+        const nonMobileComponent = shallow(<NavBar isMobile={false} />);
+        expect(nonMobileComponent.text().includes('Burger')).toBeFalsy();
+    });
+});

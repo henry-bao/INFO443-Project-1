@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Access from './access';
 import Logo from './logo';
 import NavLinks from './navlinks';
-import { useMediaQuery } from 'react-responsive';
 import Burger from './mobileNav';
 
 const NavBarContainer = styled.div`
@@ -35,16 +34,15 @@ const Right = styled.div`
 `;
 
 export default function NavBar(props) {
-    const isMobile = useMediaQuery({ maxWidth: 768 });
     return (
         <NavBarContainer>
             <Left>
-                <Logo isMobile={isMobile} />
+                <Logo isMobile={props.isMobile} />
             </Left>
-            <Middle>{!isMobile && <NavLinks />}</Middle>
+            <Middle>{!props.isMobile && <NavLinks />}</Middle>
             <Right>
-                {!isMobile && <Access buttonWord={props.buttonWord} />}
-                {isMobile && <Burger buttonWord={props.buttonWord} />}
+                {!props.isMobile && <Access buttonWord={props.buttonWord} />}
+                {props.isMobile && <Burger buttonWord={props.buttonWord} />}
             </Right>
         </NavBarContainer>
     );

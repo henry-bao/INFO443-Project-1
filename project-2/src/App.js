@@ -51,6 +51,7 @@ export default function App() {
             setCards(cardsArray);
         });
     }, []);
+    console.log(cards);
 
     const [user, setUser] = useState(undefined);
 

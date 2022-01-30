@@ -1,17 +1,14 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-// import App from './App';
 import LandingPage from './landing';
+import {BarSection} from './barsection';
+import NavBar from './navbar/navbar';
+import Card from './carddeck';
+import Access from './navbar/access';
+// import MockDatabase from './firebaseMock';
 
-// import BarSection from './barsection';
-
-// describe('The app', () => {
-//     test('Renders without crashing', () => {
-//         render(<App />);
-//     });
-// });
 
 describe('Landing Page', () => {
     test('Renders without crashing', () => {
@@ -42,61 +39,105 @@ describe('Landing Page', () => {
     });
 });
 
-// describe('sign in', () => {
-//     test('sign in page shows up correctly', () => {
-//         render(<App />);
-//         screen.debug();
-//         let button = screen.getByRole('button');
-//         userEvent.click(button);
-//         button = screen.getByText('Sign in');
-//         userEvent.click(button);
+describe('barsection', () => {
+    const mock_cards = [
+        {cate:"Hobby", contact: "(123)456-7890", date: 1616574317558, description: "Learn Guitar", id: "Goals", img: "../img/guitar.png", key: "1", people: 28, titile:"Guitar"},
+        {cate:"Health", contact: "(123)456-7890", date: 1616584317558, description: "Well beings", id: "Goals", img: "../img/smash.png", key: "3", people: 26, titile:"Wellbeing"},
+        {cate:"Health", contact: "(123)456-7890", date: 1616594317558, description: "Mental Health", id: "Goals", img: "../img/smash.png", key: "3", people: 26, titile:"Mental"}
+    ];
+    const mock_handleFilter = jest.fn();
+    const mock_handleSearch = jest.fn();
 
-//         expect(screen.getByText('Sign in with email')).toBeInTheDocument();
-//         expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
+    test('barsection renders without crashing', () => {
+        render(
+            <BrowserRouter>
+                <BarSection 
+                    data={mock_cards}    
+                    handleFilter={mock_handleFilter} 
+                    handleSearch={mock_handleSearch}
+                />
+            </BrowserRouter>
+        );
+        expect(screen.getAllByRole('button').length).toEqual(5);
+        expect(screen.getByText('Show all')).toBeInTheDocument();
+        expect(screen.getByText('Health')).toBeInTheDocument();
+        expect(screen.getByText('Career')).toBeInTheDocument();
+        expect(screen.getByText('Hobby')).toBeInTheDocument();
+        expect(screen.getByText('School')).toBeInTheDocument();
+        expect(mock_cards.filter(card => card.cate == 'Hobby').length).toEqual(1);
+        expect(mock_cards.filter(card => card.cate == 'Health').length).toEqual(2);
+    });
 
-//         button = screen.getByText('Home');
-//         userEvent.click(button);
+    test('filter and search button works properly', () => {
+        render(
+            <BrowserRouter>
+                <BarSection 
+                    data={mock_cards}    
+                    handleFilter={mock_handleFilter} 
+                    handleSearch={mock_handleSearch}
+                />
+            </BrowserRouter>
+        );
+        const filter_button = screen.getByText('Health');
+        userEvent.click(filter_button);
+        expect(mock_handleFilter).toHaveBeenCalled();
 
-//         expect(screen.getByText('Show all')).toBeInTheDocument();
-//         expect(screen.getByText('Health')).toBeInTheDocument();
-//     });
-// });
+        userEvent.type(screen.getByRole('searchbox'), 'Health');
+        expect(mock_handleSearch).toHaveBeenCalled();
+        expect(screen.getByRole('searchbox')).toHaveValue('Health');
+    });
 
-// describe('barsection', () => {
-//     test('barsection renders without error', () => {
-//         render(
-//             <BrowserRouter>
-//                 <BarSection />
-//             </BrowserRouter>
-//         );
-//     });
+});
 
-//     // test('filter works properly', () => {
-//     //     render(
-//     //         <BrowserRouter>
-//     //             <BarSection />
-//     //         </BrowserRouter>
-//     //     );
-//     //     expect(screen.getByText('Guitar')).toBeInTheDocument();
-//     //     expect(screen.getByText('Running')).toBeInTheDocument();
-//     //     let button = screen.getByText('Health');
-//     //     userEvent.click(button);
-//     //     expect(screen.getByText('Running')).toBeInTheDocument();
-//     //     expect(screen.getByText('Guitar')).not.toBeInTheDocument();
-//     //     expect(screen.getByText('Python')).not.toBeInTheDocument();
-//     //     button = screen.getByText('Career');
-//     //     userEvent.click(button);
-//     //     expect(screen.getByText('Python')).toBeInTheDocument();
-//     //     // expect(screen.getByText('Running')).not.toBeInTheDocument();
-//     // });
-//     // test('search works properly', () => {
-//     //     render(
-//     //         <BrowserRouter>
-//     //             <BarSection />
-//     //         </BrowserRouter>
-//     //     );
-//     //     screen.debug();
-//     //     let button = screen.getByRole('button');
-//     //     userEvent.click(button);
-//     // });
-// });
+describe('navagation bar', () => {
+    const resizeWindow = (width, height) => {
+        window.innerWidth = width
+        window.innerHeight = height
+        window.dispatchEvent(new Event('resize'))
+    }
+
+    test('navagation bar renders without crashing', () => {
+        render(
+            <BrowserRouter>
+                <NavBar
+                    buttonWord='Sign in'
+                />
+            </BrowserRouter>
+        );
+        expect(screen.getByText('Sign in')).toBeInTheDocument;
+        expect(screen.getByText('Ranking')).toBeInTheDocument;
+        expect(screen.getByText('Home')).toBeInTheDocument;
+        expect(screen.getByText('Goal Husky!')).toBeInTheDocument;
+
+        resizeWindow(700, 1000);
+        render(
+            <BrowserRouter>
+                <NavBar
+                    buttonWord='Sign in'
+                />
+            </BrowserRouter>
+        );
+        const signInButton = filter(screen.getAllByRole('link'), ()=>{
+            
+        });
+        expect(signInButton).not.toBeInTheDocument();
+    });
+
+    test('navagation bar changes with screen size', () => {
+
+        render(
+            <BrowserRouter>
+                <NavBar
+                    buttonWord='Sign in'
+                />
+            </BrowserRouter>
+        );
+        let signInButton = screen.getByText('Sign in');
+        expect(signInButton).toBeInTheDocument();
+    })
+})
+
+describe('carddeck', () => {
+
+});
+

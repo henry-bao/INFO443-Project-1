@@ -12,6 +12,7 @@
         "bootstrap": "^3.4.1",
         "firebase": "^8.2.10",
         "framer-motion": "^3.10.3",
+        "jest": "^27.4.7",
         "lodash": "^4.17.21",
         "react": "^17.0.1",
         "react-alert": "^7.0.2",

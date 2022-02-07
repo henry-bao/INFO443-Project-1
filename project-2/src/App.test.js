@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import { BarSection } from './barsection';
@@ -43,9 +43,39 @@ describe('Landing Page', () => {
 
 describe('BarSection', () => {
     const mock_cards = [
-        { cate: "Hobby", contact: "(123)456-7890", date: 1616574317558, description: "Learn Guitar", id: "Goals", img: "../img/guitar.png", key: "1", people: 28, titile: "Guitar" },
-        { cate: "Health", contact: "(123)456-7890", date: 1616584317558, description: "Well beings", id: "Goals", img: "../img/smash.png", key: "3", people: 26, titile: "Wellbeing" },
-        { cate: "Health", contact: "(123)456-7890", date: 1616594317558, description: "Mental Health", id: "Goals", img: "../img/smash.png", key: "3", people: 26, titile: "Mental" }
+        {
+            cate: 'Hobby',
+            contact: '(123)456-7890',
+            date: 1616574317558,
+            description: 'Learn Guitar',
+            id: 'Goals',
+            img: '../img/guitar.png',
+            key: '1',
+            people: 28,
+            titile: 'Guitar',
+        },
+        {
+            cate: 'Health',
+            contact: '(123)456-7890',
+            date: 1616584317558,
+            description: 'Well beings',
+            id: 'Goals',
+            img: '../img/smash.png',
+            key: '3',
+            people: 26,
+            titile: 'Wellbeing',
+        },
+        {
+            cate: 'Health',
+            contact: '(123)456-7890',
+            date: 1616594317558,
+            description: 'Mental Health',
+            id: 'Goals',
+            img: '../img/smash.png',
+            key: '3',
+            people: 26,
+            titile: 'Mental',
+        },
     ];
     const mock_handleFilter = jest.fn();
     const mock_handleSearch = jest.fn();
@@ -66,8 +96,8 @@ describe('BarSection', () => {
         expect(screen.getByText('Career')).toBeInTheDocument();
         expect(screen.getByText('Hobby')).toBeInTheDocument();
         expect(screen.getByText('School')).toBeInTheDocument();
-        expect(mock_cards.filter(card => card.cate == 'Hobby').length).toEqual(1);
-        expect(mock_cards.filter(card => card.cate == 'Health').length).toEqual(2);
+        expect(mock_cards.filter((card) => card.cate == 'Hobby').length).toEqual(1);
+        expect(mock_cards.filter((card) => card.cate == 'Health').length).toEqual(2);
     });
 
     test('filter and search button works properly', () => {
@@ -88,38 +118,25 @@ describe('BarSection', () => {
         expect(mock_handleSearch).toHaveBeenCalled();
         expect(screen.getByRole('searchbox')).toHaveValue('Health');
     });
-
 });
 
 describe('NavBar', () => {
-    const resizeWindow = (width, height) => {
-        window.innerWidth = width
-        window.innerHeight = height
-        window.dispatchEvent(new Event('resize'))
-    }
-
     test('navagation bar renders without crashing', () => {
         render(
             <BrowserRouter>
-                <NavBar
-                    buttonWord='Sign in'
-                />
+                <NavBar buttonWord="Sign in" />
             </BrowserRouter>
         );
-        expect(screen.getByText('Sign in')).toBeInTheDocument;
-        expect(screen.getByText('Ranking')).toBeInTheDocument;
-        expect(screen.getByText('Home')).toBeInTheDocument;
-        expect(screen.getByText('Goal Husky!')).toBeInTheDocument;
-
+        expect(screen.getByText('Sign in')).toBeInTheDocument();
+        expect(screen.getByText('Ranking')).toBeInTheDocument();
+        expect(screen.getByText('Home')).toBeInTheDocument();
+        expect(screen.getByText('Goal Husky!')).toBeInTheDocument();
     });
 
     test('navagation bar changes with screen size', () => {
-
         render(
             <BrowserRouter>
-                <NavBar
-                    buttonWord='Sign in'
-                />
+                <NavBar buttonWord="Sign in" />
             </BrowserRouter>
         );
         let signInButton = screen.getByText('Sign in');

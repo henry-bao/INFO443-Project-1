@@ -19,7 +19,13 @@ Goal Husky is a website that aims to help UW students **find like-minded people*
   
 ## Code Structure Analysis
 
+
 ### Architectural Elements
+
+TODO:
+* **Identify** each architectural element and state its **purpose**, include external libraries as well, e.g. React
+* Identify the **relationships/dependencies** between elements
+* The above text descriptions could be in the form of a table + introductory text
 #### Structure Diagram
 
 This is the structure diagram of this codebase, drawn in UML format.
@@ -30,6 +36,8 @@ This is the structure diagram of this codebase, drawn in UML format.
 
 
 ### Process Flow
+TODO:
+* use a list of steps to describe the process flow  + introductory text
 #### Process Flow Diagram
 
 This is the process flow diagram of this codebase, drawn in UML format.

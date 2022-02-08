@@ -26,6 +26,34 @@ TODO:
 * **Identify** each architectural element and state its **purpose**, include external libraries as well, e.g. React
 * Identify the **relationships/dependencies** between elements
 * The above text descriptions could be in the form of a table + introductory text
+
+#### Table of architectural elements
+| architectural element| purpose | relationship/dependencies |
+|--|--|-- |
+| React | The main library that enables interactive UI | Supports elements that change with respect to data and user interaction |
+| firebase| Provides back-end functionality| Supports data-dependent elements |
+| index | Initialize Firebase, renders the App element | Dependent on App, firebase, firebase |
+| App   | Renders the app | Dependent on React, firebase, DescriptionPage, leaderboard, CarDeck, BarSection, AddGoalForm, LandingPage, NavBar, Footer |
+| DiscriptionPage | Renders the description page for goals | Dependent on Join|
+| Join | Renders the join information in the description page | Supports DiscriptionPage |
+| leaderboard | Randers the leader board in the Ranking tab | Dependent on tablebody and tablehead|
+| tablebody | Renders the body of the table in leader board | Supports leaderboard|
+| tablehead | Renders the heading of the table in leader board | Supports leaderboard |
+| NavBar | Renders the navigation bar | Dependent on Logo, Navlinks, Access, and Burger |
+| Logo | Renders the logo in navigation bar | Supports NavBar |
+| NavLinks | Renders the links in navigation bar | Supports NavBar |
+| Burger | Renders the burger menu in mobile size | Supports NavBar, Dependent on MenuToggle and Access|
+| MenuToggle | Animates the burger menu list| Supports Burger menu |
+| Access | Renders login button, handles login/logout | Supports NavBar and Burger menu |
+| CardDeck | Container for cards | Aggregated by Card elements |
+| Card | Renders a card that represents a goal | Supports CardDeck|
+| BarSection | Renders filter bar and search bar | Supports App|
+| AddGoalForm | Renders the form for adding goal, handles adding goal | Supports App |
+| Footer | Renders footer | Supports App|
+| LandingPage | Randers landing page | Supports App |
+
+
+
 #### Structure Diagram
 
 This is the structure diagram of this codebase, drawn in UML format.

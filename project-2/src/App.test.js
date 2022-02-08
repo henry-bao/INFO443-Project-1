@@ -30,6 +30,7 @@ describe('Landing Page', () => {
             <
             /BrowserRouter>
         );
+        s
         const navLink = screen.getByText('Find like-minded people to complete your goals with!');
         userEvent.click(navLink);
         expect(navLink).toHaveAttribute('href', '/main');

@@ -22,10 +22,7 @@ Goal Husky is a website that aims to help UW students **find like-minded people*
 
 ### Architectural Elements
 
-TODO:
-* **Identify** each architectural element and state its **purpose**, include external libraries as well, e.g. React
-* Identify the **relationships/dependencies** between elements
-* The above text descriptions could be in the form of a table + introductory text
+The following table contains the architectural elements of the interactive web app.
 
 #### Table of architectural elements
 | architectural element| purpose | relationship/dependencies |
@@ -64,8 +61,17 @@ This is the structure diagram of this codebase, drawn in UML format.
 
 
 ### Process Flow
-TODO:
-* use a list of steps to describe the process flow  + introductory text
+
+*This is a list of actions and the corresponding process flow*
+
+|User Action| Process Flow|
+|--|--|
+|Visits page| App -> renders App -> renders LandingPage|
+|Clicks the redirect button| LandingPage -> renders BarSection <br/> LandingPage -> renders CardDeck <br/> LandingPage -> renders AddGoalForm <br/> LandingPage -> changes path at App -> App renders NavBar  |
+|Clicks "Publish Now!"| AddGoalForm -> re-renders and opens the form|
+|Files out the form and clicks "Send"| AddGoalForm -> saves user's goal into the database -> renders the success message|
+|Clicks "Close"| AddGoalForm -> re-renders and closes the form|
+
 #### Process Flow Diagram
 
 This is the process flow diagram of this codebase, drawn in UML format.
@@ -103,6 +109,8 @@ The unit test is built using the [Jest](https://facebook.github.io/jest/) tester
 # Install all the necessary packages
 
 npm install
+
+  
 
 # Run the test
 

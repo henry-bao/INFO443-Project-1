@@ -81,7 +81,7 @@ This is the process flow diagram of this codebase, drawn in UML format.
 <img  src='./images/process_flow.png'  alt='process flow dagram'  width='700'>
 
 
-## Architecture Assessment
+## Architecture Assessment & Refactoring
 
 TODO:
 * Whcih **single sizeable element** are we analyzing?
@@ -91,17 +91,22 @@ For any of the following, 1) identify approximate location -- which function is 
 * Documentation/Readability Concerns
 * Standards Violations (syntax standards like HTML specification for React apps)
 * Design Quality Deficiencies
+
+TODO:
+* Fix **all** identified problems in the chosen element
+* A description of how you fixed the problem in a few words (with names in *Fowler's Refactoring Catalogue*) -- could combine this part with the **code smell** table.
   
+  |Problem| Location | Fixes |
+  |--|--|--|
+  |1|||
+  |2|||
+  |3|||
   
 
 ## Unit Tests
 
-TODO: 
-* Fix Unit Tests -- ask TA or Joel if we need to cover the App.js
-* A written discussion of what aspects of your code you choose to *test* and *why* -- could be a list or a table
-* Documentation of test coverage and tests passing -- screenshot
 ### Coverage Report
-<img  src='./images/unit_test.png'  alt='unit tests'  width='700'>
+<img  src='./images/unit_test.png'  alt='unit tests'  width='500'>
 
 <img  src='./images/coverage_report.png'  alt='coverage report'  width='700'>
 
@@ -122,11 +127,6 @@ npm run test
 
 ```
 
- ## Refactoring
-
-TODO:
-* Fix **all** identified problems in the chosen element
-* A description of how you fixed the problem in a few words (with names in *Fowler's Refactoring Catalogue*) -- could combine this part with the **code smell** table.
 
 ## Original Project Author
 

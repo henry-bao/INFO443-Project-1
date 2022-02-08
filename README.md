@@ -83,8 +83,8 @@ This is the process flow diagram of this codebase, drawn in UML format.
 
 ## Architecture Assessment & Refactoring
 
-TODO:
-* Whcih **single sizeable element** are we analyzing?
+
+TODO: 
 
 For any of the following, 1) identify approximate location -- which function is it in, 2) give a short 1-sentence explanation of what the problem is  -- this could be a list or table
 * Code Smells
@@ -96,12 +96,17 @@ TODO:
 * Fix **all** identified problems in the chosen element
 * A description of how you fixed the problem in a few words (with names in *Fowler's Refactoring Catalogue*) -- could combine this part with the **code smell** table.
   
-  |Problem| Location | Fixes |
+
+### Element to Assess -- NavBar
+
+**This is a table for some of the code smells, documentation, readability concerns, standards violations and design quality deficiencies in the NavBar element**
+  |Location| Problem | Fixes |
   |--|--|--|
   |1|||
   |2|||
   |3|||
   
+
 
 ## Unit Tests
 

@@ -104,8 +104,6 @@ The unit test is built using the [Jest](https://facebook.github.io/jest/) tester
 
 npm install
 
-  
-
 # Run the test
 
 npm run test

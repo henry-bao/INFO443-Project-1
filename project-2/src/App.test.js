@@ -39,8 +39,8 @@ describe('Landing Page', () => {
             BrowserRouter >
             <
             LandingPage isMobile = { true }
-            /> < /
-            BrowserRouter >
+            /> <
+            /BrowserRouter>
         );
         const navLink = screen.getByText('Click here to start!');
         expect(navLink).toBeInTheDocument();
@@ -63,8 +63,8 @@ describe('BarSection', () => {
             BarSection data = { mock_cards }
             handleFilter = { mock_handleFilter }
             handleSearch = { mock_handleSearch }
-            /> < /
-            BrowserRouter >
+            /> <
+            /BrowserRouter>
         );
         expect(screen.getAllByRole('button').length).toEqual(5);
         expect(screen.getByText('Show all')).toBeInTheDocument();
@@ -83,8 +83,8 @@ describe('BarSection', () => {
             BarSection data = { mock_cards }
             handleFilter = { mock_handleFilter }
             handleSearch = { mock_handleSearch }
-            /> < /
-            BrowserRouter >
+            /> <
+            /BrowserRouter>
         );
         const filter_button = screen.getByText('Health');
         userEvent.click(filter_button);
@@ -152,8 +152,8 @@ describe('NavBar', () => {
                     BrowserRouter >
                     <
                     Logo isMobile = { true }
-                    /> < /
-                    BrowserRouter >
+                    /> <
+                    /BrowserRouter>
                 );
                 const src =
                     'https://firebasestorage.googleapis.com/v0/b/goal-husky.appspot.com/o/favicon.png?alt=media&token=f3285f01-f19b-4fd3-9a04-fcb10d998463';
@@ -166,8 +166,8 @@ describe('NavBar', () => {
                     BrowserRouter >
                     <
                     NavBar buttonWord = { 'Sign in' }
-                    /> < /
-                    BrowserRouter >
+                    /> <
+                    /BrowserRouter>
                 );
                 const signInButton = screen.getByText('Sign in');
                 userEvent.click(signInButton);
@@ -177,8 +177,8 @@ describe('NavBar', () => {
                     BrowserRouter >
                     <
                     NavBar buttonWord = { 'Sign out' }
-                    /> < /
-                    BrowserRouter >
+                    /> <
+                    /BrowserRouter>
                 );
                 const signOutButton = screen.getByText('Sign out');
                 userEvent.click(signOutButton);

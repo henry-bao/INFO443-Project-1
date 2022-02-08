@@ -101,9 +101,9 @@ TODO:
 * A written discussion of what aspects of your code you choose to *test* and *why* -- could be a list or a table
 * Documentation of test coverage and tests passing -- screenshot
 ### Coverage Report
-<img  src='./images/unit_test'  alt='unit tests'  width='700'>
+<img  src='./images/unit_test.png'  alt='unit tests'  width='700'>
 
-<img  src='./images/coverage_report'  alt='coverage report'  width='700'>
+<img  src='./images/coverage_report.png'  alt='coverage report'  width='700'>
 
 ### Running Unit Tests
 The unit test is built using the [Jest](https://facebook.github.io/jest/) tester. In order to run the test please enter the following lines into your terminal

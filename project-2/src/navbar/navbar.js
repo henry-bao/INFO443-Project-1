@@ -43,12 +43,15 @@ export default function NavBar(props) {
       <Right>
         {!props.isMobile && (
           <SignInNOut
-            signInStatus={signInStatus}
+            signInStatus={props.signInStatus}
             statusWord={props.statusWord}
           />
         )}
         {props.isMobile && (
-          <Burger signInStatus={signInStatus} statusWord={props.statusWord} />
+          <Burger
+            signInStatus={props.signInStatus}
+            statusWord={props.statusWord}
+          />
         )}
       </Right>
     </NavBarContainer>

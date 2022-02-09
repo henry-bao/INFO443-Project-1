@@ -1,19 +1,18 @@
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { BrowserRouter } from 'react-router-dom';
-import { BarSection } from './barsection';
-import * as React from 'react';
-import { shallow, configure } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import firebase from 'firebase';
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
+import { BarSection } from "./barsection";
+import * as React from "react";
+import { shallow, configure } from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 
-import LandingPage from './landing';
-import NavBar from './navbar/navbar';
-import Logo from './navbar/logo';
-import Access from './navbar/access';
-import MenuToggle from './navbar/menutoggle';
-import Burger from './navbar/mobileNav';
+import LandingPage from "./landing";
+import NavBar from "./navbar/navbar";
+import Logo from "./navbar/logo";
+import SignInNOut from "./navbar/signInNOut";
+import MenuToggle from "./navbar/menutoggle";
+import Burger from "./navbar/mobileNav";
 
 configure({ adapter: new Adapter() });
 
@@ -46,83 +45,87 @@ describe('Landing Page', () => {
     });
 });
 
-describe('BarSection', () => {
-    const mock_cards = [
-        {
-            cate: 'Hobby',
-            contact: '(123)456-7890',
-            date: 1616574317558,
-            description: 'Learn Guitar',
-            id: 'Goals',
-            img: '../img/guitar.png',
-            key: '1',
-            people: 28,
-            titile: 'Guitar',
-        },
-        {
-            cate: 'Health',
-            contact: '(123)456-7890',
-            date: 1616584317558,
-            description: 'Well beings',
-            id: 'Goals',
-            img: '../img/smash.png',
-            key: '3',
-            people: 26,
-            titile: 'Wellbeing',
-        },
-        {
-            cate: 'Health',
-            contact: '(123)456-7890',
-            date: 1616594317558,
-            description: 'Mental Health',
-            id: 'Goals',
-            img: '../img/smash.png',
-            key: '3',
-            people: 26,
-            titile: 'Mental',
-        },
-    ];
-    const mock_handleFilter = jest.fn();
-    const mock_handleSearch = jest.fn();
+describe("BarSection", () => {
+  const mock_cards = [
+    {
+      cate: "Hobby",
+      contact: "(123)456-7890",
+      date: 1616574317558,
+      description: "Learn Guitar",
+      id: "Goals",
+      img: "../img/guitar.png",
+      key: "1",
+      people: 28,
+      titile: "Guitar",
+    },
+    {
+      cate: "Health",
+      contact: "(123)456-7890",
+      date: 1616584317558,
+      description: "Well beings",
+      id: "Goals",
+      img: "../img/smash.png",
+      key: "3",
+      people: 26,
+      titile: "Wellbeing",
+    },
+    {
+      cate: "Health",
+      contact: "(123)456-7890",
+      date: 1616594317558,
+      description: "Mental Health",
+      id: "Goals",
+      img: "../img/smash.png",
+      key: "3",
+      people: 26,
+      titile: "Mental",
+    },
+  ];
+  const mock_handleFilter = jest.fn();
+  const mock_handleSearch = jest.fn();
 
-    test('barsection renders without crashing', () => {
-        render(
-            <BrowserRouter>
-                <BarSection
-                    data={mock_cards}
-                    handleFilter={mock_handleFilter}
-                    handleSearch={mock_handleSearch}
-                />
-            </BrowserRouter>
-        );
-        expect(screen.getAllByRole('button').length).toEqual(5);
-        expect(screen.getByText('Show all')).toBeInTheDocument();
-        expect(screen.getByText('Health')).toBeInTheDocument();
-        expect(screen.getByText('Career')).toBeInTheDocument();
-        expect(screen.getByText('Hobby')).toBeInTheDocument();
-        expect(screen.getByText('School')).toBeInTheDocument();
-        expect(mock_cards.filter((card) => card.cate === 'Hobby').length).toEqual(1);
-        expect(mock_cards.filter((card) => card.cate === 'Health').length).toEqual(2);
-    });
+  test("barsection renders without crashing", () => {
+    render(
+      <BrowserRouter>
+        <BarSection
+          data={mock_cards}
+          handleFilter={mock_handleFilter}
+          handleSearch={mock_handleSearch}
+        />
+      </BrowserRouter>
+    );
+    expect(screen.getAllByRole("button").length).toEqual(5);
+    expect(screen.getByText("Show all")).toBeInTheDocument();
+    expect(screen.getByText("Health")).toBeInTheDocument();
+    expect(screen.getByText("Career")).toBeInTheDocument();
+    expect(screen.getByText("Hobby")).toBeInTheDocument();
+    expect(screen.getByText("School")).toBeInTheDocument();
+    expect(mock_cards.filter((card) => card.cate === "Hobby").length).toEqual(
+      1
+    );
+    expect(mock_cards.filter((card) => card.cate === "Health").length).toEqual(
+      2
+    );
+  });
 
-    test('filter and search button works properly', () => {
-        render(
-            <BrowserRouter>
-                <BarSection
-                    data={mock_cards}
-                    handleFilter={mock_handleFilter}
-                    handleSearch={mock_handleSearch}
-                />
-            </BrowserRouter>
-        );
-        const filter_button = screen.getByText('Health');
-        userEvent.click(filter_button);
-        expect(mock_handleFilter).toHaveBeenCalled();
+  test("filter and search button works properly", () => {
+    render(
+      <BrowserRouter>
+        <BarSection
+          data={mock_cards}
+          handleFilter={mock_handleFilter}
+          handleSearch={mock_handleSearch}
+        />
+      </BrowserRouter>
+    );
+    const filter_button = screen.getByText("Health");
+    userEvent.click(filter_button);
+    expect(mock_handleFilter).toHaveBeenCalled();
 
-        userEvent.type(screen.getByRole('searchbox'), 'Health');
-        expect(mock_handleSearch).toHaveBeenCalled();
-        expect(screen.getByRole('searchbox')).toHaveValue('Health');
-    });
+    userEvent.type(screen.getByRole("searchbox"), "Health");
+    expect(mock_handleSearch).toHaveBeenCalled();
+    expect(screen.getByRole("searchbox")).toHaveValue("Health");
+  });
 });
 
 describe('NavBar', () => {
@@ -191,12 +194,12 @@ describe('NavBar', () => {
         expect(nonMobileComponent.text().includes('Burger')).toBeFalsy();
     });
 
-    test('Access button is able to toggle open and close of the burger menu', () => {
+    test('Burger menu closes after sign in button is clicked', () => {
         let isOpen = false;
         const setOpen = (newOpenStatus) => (isOpen = newOpenStatus);
         render(
             <BrowserRouter>
-                <Access buttonWord={'Sign in'} setOpen={setOpen} isOpen={isOpen} />
+                <SignInNOut buttonWord={'Sign in'} setOpen={setOpen} isOpen={isOpen} />
             </BrowserRouter>
         );
         userEvent.click(screen.getByText('Sign in'));
@@ -219,7 +222,7 @@ describe('NavBar', () => {
     test('Sign in and Sign out button displays the correct text after click', () => {
         render(
             <BrowserRouter>
-                <Access buttonWord={'Sign out'} />
+                <SignInNOut buttonWord={'Sign out'} />
             </BrowserRouter>
         );
         const signOutButton = screen.getByText('Sign out');

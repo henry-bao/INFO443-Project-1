@@ -147,3 +147,8 @@ jest.mock('firebase/auth', () => {
         GoogleAuthProvider: { PROVIDER_ID: 2 },
     };
 });
+
+
+if (!SVGElement.prototype.getTotalLength) {
+    SVGElement.prototype.getTotalLength = () => 1;
+  }

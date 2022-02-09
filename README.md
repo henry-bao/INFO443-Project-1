@@ -106,7 +106,7 @@ Functions: Access, Logo, NavLinks, Burger, MenuToggle
 
 <img  src='./images/unit_test.png'  alt='unit tests'  width='500'>
 
-<img  src='./images/coverage_report.png'  alt='coverage report'  width='700'>
+<img  src='./images/coverage_report.jpg'  alt='coverage report'  width='700'>
 
 ### Running Unit Tests
 
@@ -114,12 +114,10 @@ The unit test is built using the [Jest](https://facebook.github.io/jest/) tester
 
 ```bash
 # Move to the project folder
-cd project
+cd project-2
 
 # Install all the necessary packages
 npm install
-
-
 
 # Run the test
 npm run test

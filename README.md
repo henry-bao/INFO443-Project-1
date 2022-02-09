@@ -21,7 +21,7 @@ The following table contains the architectural elements of the interactive web a
 | architectural element | purpose                                               | relationship/dependencies                                                                                                 |
 | --------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | React                 | The main library that enables interactive UI          | Supports elements that change with respect to data and user interaction                                                   |
-| firebase              | Provides back-end functionality                       | Supports data-dependent elements                                                                                          |
+| firebase              | Provides back-end functionality, stores user information                       | Supports data-dependent elements                                                                                          |
 | index                 | Initialize Firebase, renders the App element          | Dependent on App, firebase, firebase                                                                                      |
 | App                   | Renders the app                                       | Dependent on React, firebase, DescriptionPage, leaderboard, CarDeck, BarSection, AddGoalForm, LandingPage, NavBar, Footer |
 | DiscriptionPage       | Renders the description page for goals                | Dependent on Join                                                                                                         |
@@ -101,7 +101,20 @@ Functions: Access, Logo, NavLinks, Burger, MenuToggle
 |6|The Access function | Feature Envy - handleSignout(). This const function relies more on outer text element rather than modules from the Access function| Instead of passing 'event' as attribute, use "signInStatus" from props in the Access function|
 
 ## Unit Tests
-
+| Test | Reason for the test |
+|------|---------------------|
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
+|      |                     |
 ### Coverage Report
 
 <img  src='./images/unit_test.png'  alt='unit tests'  width='500'>
@@ -126,6 +139,16 @@ npm run test
 npm run test -- --coverage
 ```
 
+## Refactoring the Code
+| Deficient Code | Refactored Code | Type of Architectural Deficiencies | How it was fixed |
+|----------------|-----------------|------------------------------------|------------------|
+|                |                 |                                    |                  |
+|                |                 |                                    |                  |
+|                |                 |                                    |                  |
+|                |                 |                                    |                  |
+|                |                 |                                    |                  |
+|                |                 |                                    |                  |
+|                |                 |                                    |                  |
 ## Original Project Author
 
 This is an info 340 group project contribute by Group - C1:<br>

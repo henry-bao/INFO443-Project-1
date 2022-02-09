@@ -18,29 +18,29 @@ The following table contains the architectural elements of the interactive web a
 
 #### Table of architectural elements
 
-| architectural element | purpose                                               | relationship/dependencies                                                                                                 |
-| --------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| React                 | The main library that enables interactive UI          | Supports elements that change with respect to data and user interaction                                                   |
-| firebase              | Provides back-end functionality, stores user information                       | Supports data-dependent elements                                                                                          |
-| index                 | Initialize Firebase, renders the App element          | Dependent on App, firebase, firebase                                                                                      |
-| App                   | Renders the app                                       | Dependent on React, firebase, DescriptionPage, leaderboard, CarDeck, BarSection, AddGoalForm, LandingPage, NavBar, Footer |
-| DiscriptionPage       | Renders the description page for goals                | Dependent on Join                                                                                                         |
-| Join                  | Renders the join information in the description page  | Supports DiscriptionPage                                                                                                  |
-| leaderboard           | Randers the leader board in the Ranking tab           | Dependent on tablebody and tablehead                                                                                      |
-| tablebody             | Renders the body of the table in leader board         | Supports leaderboard                                                                                                      |
-| tablehead             | Renders the heading of the table in leader board      | Supports leaderboard                                                                                                      |
-| NavBar                | Renders the navigation bar                            | Dependent on Logo, Navlinks, Access, and Burger                                                                           |
-| Logo                  | Renders the logo in navigation bar                    | Supports NavBar                                                                                                           |
-| NavLinks              | Renders the links in navigation bar                   | Supports NavBar                                                                                                           |
-| Burger                | Renders the burger menu in mobile size                | Supports NavBar, Dependent on MenuToggle and Access                                                                       |
-| MenuToggle            | Animates the burger menu Button                       | Supports Burger menu                                                                                                      |
-| Access                | Renders login button, handles login/logout            | Supports NavBar and Burger menu                                                                                           |
-| CardDeck              | Container for cards                                   | Aggregated by Card elements                                                                                               |
-| Card                  | Renders a card that represents a goal                 | Supports CardDeck                                                                                                         |
-| BarSection            | Renders filter bar and search bar                     | Supports App                                                                                                              |
-| AddGoalForm           | Renders the form for adding goal, handles adding goal | Supports App                                                                                                              |
-| Footer                | Renders footer                                        | Supports App                                                                                                              |
-| LandingPage           | Randers landing page                                  | Supports App                                                                                                              |
+| architectural element | purpose                                                  | relationship/dependencies                                                                                                 |
+| --------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| React                 | The main library that enables interactive UI             | Supports elements that change with respect to data and user interaction                                                   |
+| firebase              | Provides back-end functionality, stores user information | Supports data-dependent elements                                                                                          |
+| index                 | Initialize Firebase, renders the App element             | Dependent on App, firebase, firebase                                                                                      |
+| App                   | Renders the app                                          | Dependent on React, firebase, DescriptionPage, leaderboard, CarDeck, BarSection, AddGoalForm, LandingPage, NavBar, Footer |
+| DiscriptionPage       | Renders the description page for goals                   | Dependent on Join                                                                                                         |
+| Join                  | Renders the join information in the description page     | Supports DiscriptionPage                                                                                                  |
+| leaderboard           | Randers the leader board in the Ranking tab              | Dependent on tablebody and tablehead                                                                                      |
+| tablebody             | Renders the body of the table in leader board            | Supports leaderboard                                                                                                      |
+| tablehead             | Renders the heading of the table in leader board         | Supports leaderboard                                                                                                      |
+| NavBar                | Renders the navigation bar                               | Dependent on Logo, Navlinks, Access, and Burger                                                                           |
+| Logo                  | Renders the logo in navigation bar                       | Supports NavBar                                                                                                           |
+| NavLinks              | Renders the links in navigation bar                      | Supports NavBar                                                                                                           |
+| Burger                | Renders the burger menu in mobile size                   | Supports NavBar, Dependent on MenuToggle and Access                                                                       |
+| MenuToggle            | Animates the burger menu Button                          | Supports Burger menu                                                                                                      |
+| Access                | Renders login button, handles login/logout               | Supports NavBar and Burger menu                                                                                           |
+| CardDeck              | Container for cards                                      | Aggregated by Card elements                                                                                               |
+| Card                  | Renders a card that represents a goal                    | Supports CardDeck                                                                                                         |
+| BarSection            | Renders filter bar and search bar                        | Supports App                                                                                                              |
+| AddGoalForm           | Renders the form for adding goal, handles adding goal    | Supports App                                                                                                              |
+| Footer                | Renders footer                                           | Supports App                                                                                                              |
+| LandingPage           | Randers landing page                                     | Supports App                                                                                                              |
 
 #### Structure Diagram
 
@@ -76,15 +76,15 @@ TODO:
 
 For any of the following, 1) identify approximate location -- which function is it in, 2) give a short 1-sentence explanation of what the problem is -- this could be a list or table
 
-- Code Smells
-- Documentation/Readability Concerns
-- Standards Violations (syntax standards like HTML specification for React apps)
-- Design Quality Deficiencies
+-   Code Smells
+-   Documentation/Readability Concerns
+-   Standards Violations (syntax standards like HTML specification for React apps)
+-   Design Quality Deficiencies
 
 TODO:
 
-- Fix **all** identified problems in the chosen element
-- A description of how you fixed the problem in a few words (with names in _Fowler's Refactoring Catalogue_) -- could combine this part with the **code smell** table.
+-   Fix **all** identified problems in the chosen element
+-   A description of how you fixed the problem in a few words (with names in _Fowler's Refactoring Catalogue_) -- could combine this part with the **code smell** table.
 
 ### Element to Assess -- NavBar
 
@@ -101,8 +101,9 @@ Functions: Access, Logo, NavLinks, Burger, MenuToggle
 |6|The Access function | Feature Envy - handleSignout(). This const function relies more on outer text element rather than modules from the Access function| Instead of passing 'event' as attribute, use "signInStatus" from props in the Access function|
 
 ## Unit Tests
+
 | Test | Reason for the test |
-|------|---------------------|
+| ---- | ------------------- |
 |      |                     |
 |      |                     |
 |      |                     |
@@ -115,6 +116,7 @@ Functions: Access, Logo, NavLinks, Burger, MenuToggle
 |      |                     |
 |      |                     |
 |      |                     |
+
 ### Coverage Report
 
 <img  src='./images/unit_test.png'  alt='unit tests'  width='500'>
@@ -140,8 +142,9 @@ npm run test -- --coverage
 ```
 
 ## Refactoring the Code
+
 | Deficient Code | Refactored Code | Type of Architectural Deficiencies | How it was fixed |
-|----------------|-----------------|------------------------------------|------------------|
+| -------------- | --------------- | ---------------------------------- | ---------------- |
 |                |                 |                                    |                  |
 |                |                 |                                    |                  |
 |                |                 |                                    |                  |
@@ -149,6 +152,7 @@ npm run test -- --coverage
 |                |                 |                                    |                  |
 |                |                 |                                    |                  |
 |                |                 |                                    |                  |
+
 ## Original Project Author
 
 This is an info 340 group project contribute by Group - C1:<br>

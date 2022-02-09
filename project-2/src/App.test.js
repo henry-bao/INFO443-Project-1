@@ -13,7 +13,6 @@ import NavBar from './navbar/navbar';
 import Logo from './navbar/logo';
 import Access from './navbar/access';
 import MenuToggle from './navbar/menutoggle';
-import NavLinks from './navbar/navlinks';
 import Burger from './navbar/mobileNav';
 
 configure({ adapter: new Adapter() });
@@ -114,8 +113,8 @@ describe('BarSection', () => {
         expect(screen.getByText('Career')).toBeInTheDocument();
         expect(screen.getByText('Hobby')).toBeInTheDocument();
         expect(screen.getByText('School')).toBeInTheDocument();
-        expect(mock_cards.filter((card) => card.cate == 'Hobby').length).toEqual(1);
-        expect(mock_cards.filter((card) => card.cate == 'Health').length).toEqual(2);
+        expect(mock_cards.filter((card) => card.cate === 'Hobby').length).toEqual(1);
+        expect(mock_cards.filter((card) => card.cate === 'Health').length).toEqual(2);
     });
 
     test('filter and search button works properly', () => {
@@ -145,10 +144,10 @@ describe('NavBar', () => {
                 <NavBar buttonWord="Sign in" />
             </BrowserRouter>
         );
-        expect(screen.getByText('Sign in')).toBeInTheDocument;
-        expect(screen.getByText('Ranking')).toBeInTheDocument;
-        expect(screen.getByText('Home')).toBeInTheDocument;
-        expect(screen.getByText('Goal Husky!')).toBeInTheDocument;
+        expect(screen.getByText('Sign in')).toBeInTheDocument();
+        expect(screen.getByText('Ranking')).toBeInTheDocument();
+        expect(screen.getByText('Home')).toBeInTheDocument();
+        expect(screen.getByText('Goal Husky!')).toBeInTheDocument();
     });
 
     test("Logo must have a 'src' and an 'alt'", () => {

@@ -17,18 +17,6 @@ import Burger from './navbar/mobileNav';
 
 configure({ adapter: new Adapter() });
 
-const firebaseConfig = {
-    apiKey: 'AIzaSyBcmF2mDQg7K76YWcwJE1GAHkeFNP-1SHw',
-    authDomain: 'goal-husky.firebaseapp.com',
-    databaseURL: 'https://goal-husky-default-rtdb.firebaseio.com',
-    projectId: 'goal-husky',
-    storageBucket: 'goal-husky.appspot.com',
-    messagingSenderId: '433839611230',
-    appId: '1:433839611230:web:a753a2c113c492452fc3cf',
-};
-
-firebase.initializeApp(firebaseConfig);
-
 describe('Landing Page', () => {
     test('Renders without crashing', () => {
         render(
@@ -150,18 +138,7 @@ describe('NavBar', () => {
         expect(screen.getByText('Goal Husky!')).toBeInTheDocument();
     });
 
-    test("Logo must have a 'src' and an 'alt'", () => {
-        render(
-            <BrowserRouter>
-                <NavBar />
-            </BrowserRouter>
-        );
-        const logo = screen.getByRole('img');
-        expect(logo).toHaveAttribute('src');
-        expect(logo).toHaveAttribute('alt');
-    });
-
-    test('Logo changes on mobile', () => {
+    test('Website logo changes on mobile', () => {
         render(
             <BrowserRouter>
                 <Logo isMobile={true} />
@@ -173,7 +150,7 @@ describe('NavBar', () => {
         expect(logo).toHaveAttribute('src', src);
     });
 
-    test('Sign in and Sign out buttons have the corrent href', () => {
+    test('Sign in and Sign out buttons leads to the right page', () => {
         render(
             <BrowserRouter>
                 <NavBar buttonWord={'Sign in'} />
@@ -193,7 +170,7 @@ describe('NavBar', () => {
         expect(signOutButton).toHaveAttribute('href', '/');
     });
 
-    test('Home and Ranking list button work', () => {
+    test('Home and Ranking list button leads to the right page', () => {
         render(
             <BrowserRouter>
                 <NavBar />
@@ -206,7 +183,7 @@ describe('NavBar', () => {
         expect(rankingListLink).toHaveAttribute('href', '/ranking');
     });
 
-    test('Burger menu only shows up when isMobile is true', () => {
+    test('Burger menu only shows up on mobile', () => {
         const mobileComponent = shallow(<NavBar isMobile={true} />);
         expect(mobileComponent.text().includes('Burger')).toBeTruthy();
 
@@ -237,5 +214,16 @@ describe('NavBar', () => {
                 <Burger buttonWord={'Sign in'} />
             </BrowserRouter>
         );
+    });
+
+    test('Sign in and Sign out button displays the correct text after click', () => {
+        render(
+            <BrowserRouter>
+                <Access buttonWord={'Sign out'} />
+            </BrowserRouter>
+        );
+        const signOutButton = screen.getByText('Sign out');
+        userEvent.click(signOutButton);
+        expect(screen.getByText('Sign in')).toBeInTheDocument();
     });
 });

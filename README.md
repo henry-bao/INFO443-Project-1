@@ -71,15 +71,17 @@ TODO:
 The unit test is built using the [Jest](https://facebook.github.io/jest/) tester. In order to run the test please enter the following lines into your terminal
 
 ```bash
+# Move to the project folder
+cd project
 
 # Install all the necessary packages
-
 npm install
 
 # Run the test
-
 npm run test
 
+# Run the test with coverage report
+npm run test -- --coverage
 ```
 
   

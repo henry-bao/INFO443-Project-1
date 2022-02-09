@@ -1,9 +1,9 @@
 # Goal Husky!
 
 <figure>
-<figcaption align ="center"> <b>A Screenshot of the  Goal Husky Home Page</b> </figcaption>
+<figcaption align="center"> <b>A Screenshot of the  Goal Husky Home Page</b> </figcaption>
 <img  src='./images/goal_husky_home.png'  alt='goal husky homepage'  width='700'>
-<figcaption align ="center"> <b>Figure 1: Goal Husky Home Page</b> </figcaption>
+<figcaption align="center"> <b>Figure 1: Goal Husky Home Page</b> </figcaption>
 </figure>
 
 This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool. 
@@ -158,13 +158,11 @@ We chose to **assess** and **refactor** the NavBar component because of its impo
 
 We decided to assess and refactor the NavBar component with the help of some Unit tests. The test names and the coverage report are shwon in Figure 4.
 
-  
 <figure>
 <figcaption align ="center"> <b>A screenshot of the Unit Test results and the Coverage Report</b> </figcaption>
 <img  src='./images/coverage_report.jpg'  alt='coverage report'  width='700'>
 <figcaption align ="center"> <b>Figure 4: Unit Tests Coverage Report</b> </figcaption>
 </figure>
-  
 
 ### Running Unit Tests
 
@@ -175,19 +173,16 @@ The unit test is built using the [Jest](https://facebook.github.io/jest/) tester
   
 
 ```bash
+# Move to the project directory
+cd project-2
 
 # Install all the necessary packages
-
 npm install
 
-
 # Run the test
-
 npm run test
 
-
 # for coverage results
-
 npm run test -- --coverage
   
 

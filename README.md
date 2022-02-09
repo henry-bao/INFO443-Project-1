@@ -156,7 +156,7 @@ We decided to assess and refactor the NavBar component with the help of some Uni
 
   
 
-<img  src='./images/coverage_report.png'  alt='coverage report'  width='700'>
+<img  src='./images/coverage_report.jpg'  alt='coverage report'  width='700'>
 
   
 
@@ -169,19 +169,16 @@ The unit test is built using the [Jest](https://facebook.github.io/jest/) tester
   
 
 ```bash
+# Move to the project directory
+cd project-2
 
 # Install all the necessary packages
-
 npm install
 
-
 # Run the test
-
 npm run test
 
-
 # for coverage results
-
 npm run test -- --coverage
   
 

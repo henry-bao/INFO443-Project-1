@@ -133,7 +133,7 @@ We decided to assess and refactor the NavBar component with the help of some Uni
 
 <figcaption align = "center"> <b>A screenshot of the Unit Test results and the Coverage Report</b> </figcaption>
 
-<img  src='./images/coverage_report.jpg'  alt='coverage report'  width='700'>
+<img  src='./images/coverage_report.png'  alt='coverage report'  width='700'>
 
 <figcaption align = "center"> <b>Figure 4: Unit Tests Coverage Report</b> </figcaption>
 

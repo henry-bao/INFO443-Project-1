@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import { BarSection } from './barsection';
 import * as React from 'react';
-import { shallow, configure, mount } from 'enzyme';
+import { shallow, configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import firebase from 'firebase';
 
@@ -208,7 +208,6 @@ describe('NavBar', () => {
         expect(navLinks.length).toEqual(3);
         expect(homeLink).toHaveAttribute('href', '/main');
         userEvent.click(homeLink);
-
     });
     test('Mobile Ranking list button leads to the right page', () => {
         render(

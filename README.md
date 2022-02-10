@@ -66,11 +66,11 @@ Figure 2 is the structure diagram of this codebase, drawn in UML class diagram f
 
 <figure>
 
-<figcaption align ="center"> <b>A structure diagram of Goal Husky in UML class diagram format</b> </figcaption>
+<figcaption> <b>A structure diagram of Goal Husky in UML class diagram format</b> </figcaption>
 
-<img  src='./images/structure.jpg'  alt='structure diagram'  width='700'>
+<img  src='./images/structure_diagram.jpg' alt='structure diagram' width='700'>
 
-<figcaption align ="center"> <b>Figure 2: Structure Diagram for Goal Husky</b> </figcaption>
+<figcaption> <b>Figure 2: Structure Diagram for Goal Husky</b> </figcaption>
 
 </figure>
 
@@ -94,11 +94,11 @@ Figure 3 is a process flow diagram of this codebase, drawn in UML sequence diagr
 
 <figure>
 
-<figcaption align ="center"> <b>A process flow diagram for opening Goal Husky and adding a goal</b> </figcaption>
+<figcaption> <b>A process flow diagram for opening Goal Husky and adding a goal</b> </figcaption>
 
 <img  src='./images/process_flow.png'  alt='process flow diagram'  width='700'>
 
-<figcaption align ="center"> <b>Figure 3: Process Flow Diagram</b> </figcaption>
+<figcaption> <b>Figure 3: Process Flow Diagram</b> </figcaption>
 
 </figure>
 

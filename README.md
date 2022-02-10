@@ -132,8 +132,8 @@ We decided to assess and refactor the NavBar component with the help of some Uni
 <figcaption > <b>A screenshot of the Unit Test results and the Coverage Report</b> </figcaption>
 <img src='./images/unit_test.png' alt='a screenshot of all the unit tests' width='500'>
 
-<figcaption > <b>Figure 4: Unit Tests Coverage Report</b> </figcaption>
 <img src='./images/coverage_report.png'  alt='coverage report'  width='600'>
+<figcaption > <b>Figure 4: Unit Tests Coverage Report</b> </figcaption>
 
 </figure>
 
@@ -157,6 +157,6 @@ npm run test -- --coverage --watchAll
 
 ## Original Project Author
 
-This is an info 340 group project contribute by Group - C1:<br>
+This is an INFO 340 group project, contributed by Group - C1:
 
 Henry Bao, Johnny He, Leo Fang, Lesi Li.

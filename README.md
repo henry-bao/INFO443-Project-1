@@ -127,7 +127,7 @@ We chose to **assess** and **refactor** the NavBar component because of its impo
 
 ### Coverage Report
 
-We decided to assess and refactor the NavBar component with the help of some Unit tests. The test names and the coverage report are shwon in Figure 4.
+We decided to assess and refactor the NavBar component with the help of some Unit tests. In addition, we also covered BarSection and LandingPage. The test names and the coverage report are shwon in Figure 4.
 
 <figure>
 
@@ -154,7 +154,7 @@ npm install
 npm run test
 
 # for coverage results
-npm run test -- --coverage
+npm run test -- --coverage --watchAll
 ```
 
 ## Original Project Author

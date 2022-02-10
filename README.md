@@ -74,7 +74,6 @@ Figure 2 is the structure diagram of this codebase, drawn in UML class diagram f
 
 </figure>
 
-
 ### Process Flow
 
 _This is a list of actions and the corresponding process flow_
@@ -103,7 +102,6 @@ Figure 3 is a process flow diagram of this codebase, drawn in UML sequence diagr
 
 </figure>
 
-
 ## Architecture Assessment & Refactoring
 
 ### Element to Assess -- NavBar
@@ -131,11 +129,11 @@ We decided to assess and refactor the NavBar component with the help of some Uni
 
 <figure>
 
-<figcaption align = "center"> <b>A screenshot of the Unit Test results and the Coverage Report</b> </figcaption>
+<figcaption > <b>A screenshot of the Unit Test results and the Coverage Report</b> </figcaption>
+<img src='./images/unit_test.png' alt='a screenshot of all the unit tests' width='500'>
 
-<img  src='./images/coverage_report.png'  alt='coverage report'  width='700'>
-
-<figcaption align = "center"> <b>Figure 4: Unit Tests Coverage Report</b> </figcaption>
+<figcaption > <b>Figure 4: Unit Tests Coverage Report</b> </figcaption>
+<img src='./images/coverage_report.png'  alt='coverage report'  width='600'>
 
 </figure>
 

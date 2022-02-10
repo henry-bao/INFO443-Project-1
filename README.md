@@ -180,8 +180,6 @@ npm run test
 
 # for coverage results
 npm run test -- --coverage
-  
-
 ```
 
   
